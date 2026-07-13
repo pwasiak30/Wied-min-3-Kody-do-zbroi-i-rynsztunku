@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiedźmin 3 – Kody do zbroi i rynsztunku</title>
+<meta name="description" content="Wyszukiwarka kodów additem do zbroi, uzbrojenia i rynsztunku z Wiedźmina 3: Dziki Gon, wraz z rankingiem zestawów.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <span class="wolf-medallion">🐺</span>
+  <h1>Wiedźmin 3: kody do zbroi i rynsztunku</h1>
+  <p class="subtitle">Wpisz nazwę przedmiotu (np. „Gryf”, „Aerondight”) lub kod (np. „Wolf Armor”), aby zobaczyć kody <code>additem()</code> dla wszystkich poziomów – łącznie z wersją maksymalną – oraz ranking danego zestawu.</p>
+</header>
+
+<main>
+  <div class="search-panel">
+    <div class="search-row">
+      <input type="text" id="searchInput" placeholder="Szukaj: nazwa przedmiotu lub kod..." autofocus autocomplete="off">
+      <select id="categoryFilter">
+        <option value="all">Wszystkie kategorie</option>
+        <option value="armor">Zbroja</option>
+        <option value="boots">Buty</option>
+        <option value="gloves">Rękawice</option>
+        <option value="pants">Spodnie</option>
+        <option value="steelsword">Miecz stalowy</option>
+        <option value="silversword">Miecz srebrny</option>
+        <option value="crossbow">Kusza</option>
+        <option value="saddlebag">Sakwy</option>
+        <option value="saddle">Siodło</option>
+        <option value="blinders">Naoczniki</option>
+      </select>
+    </div>
+    <div class="result-count" id="resultCount"></div>
+  </div>
+
+  <div class="empty-state" id="emptyState"></div>
+  <div class="results" id="results"></div>
+</main>
+
+<footer>
+  <p>Aby aktywować konsolę: w pliku <code>bin/config/base/general.ini</code> dodaj linię <code>DBGConsoleOn=true</code>, następnie w grze otwórz konsolę klawiszem <code>~</code>.</p>
+  <p>Kody weryfikowane na podstawie community guide'ów PC (Steam/GOG). Dokładne wartości statystyk skalują się z poziomem postaci – traktuj je jako opis roli bojowej, nie sztywne liczby.</p>
+  <p>Zrobione dla własnego użytku · dane z domeny publicznej społeczności Wiedźmina 3</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
