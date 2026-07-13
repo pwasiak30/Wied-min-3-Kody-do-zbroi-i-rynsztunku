@@ -21,19 +21,51 @@
       <input type="text" id="searchInput" placeholder="Szukaj: nazwa przedmiotu lub kod..." autofocus autocomplete="off">
       <select id="categoryFilter">
         <option value="all">Wszystkie kategorie</option>
-        <option value="armor">Zbroja</option>
-        <option value="boots">Buty</option>
-        <option value="gloves">Rękawice</option>
-        <option value="pants">Spodnie</option>
-        <option value="steelsword">Miecz stalowy</option>
-        <option value="silversword">Miecz srebrny</option>
-        <option value="crossbow">Kusza</option>
-        <option value="saddlebag">Sakwy</option>
-        <option value="saddle">Siodło</option>
-        <option value="blinders">Naoczniki</option>
+        <optgroup label="Zbroje i uzbrojenie">
+          <option value="armor">Zbroja</option>
+          <option value="boots">Buty</option>
+          <option value="gloves">Rękawice</option>
+          <option value="pants">Spodnie</option>
+          <option value="steelsword">Miecz stalowy</option>
+          <option value="silversword">Miecz srebrny</option>
+          <option value="crossbow">Kusza</option>
+          <option value="saddlebag">Sakwy</option>
+          <option value="saddle">Siodło</option>
+          <option value="blinders">Naoczniki</option>
+        </optgroup>
+        <optgroup label="Przedmioty">
+          <option value="dye">Barwniki</option>
+          <option value="potion">Mikstury</option>
+          <option value="decoction">Dekokty</option>
+          <option value="oil">Oleje</option>
+          <option value="bomb">Bomby</option>
+          <option value="mutagen">Mutageny</option>
+          <option value="schematic">Glify / Runy</option>
+          <option value="material">Materiały rzemieślnicze</option>
+        </optgroup>
+        <optgroup label="Komendy">
+          <option value="combat">Walka</option>
+          <option value="money">Gotówka</option>
+          <option value="exploration">Eksploracja mapy</option>
+          <option value="weather">Pogoda i czas</option>
+          <option value="geraltLook">Wygląd/zachowanie Geralta</option>
+          <option value="skill">Umiejętności Geralta</option>
+          <option value="npcLook">Wygląd postaci (Ciri/Triss/Yen/Keira)</option>
+        </optgroup>
       </select>
     </div>
     <div class="result-count" id="resultCount"></div>
+    <div class="chips">
+      <button class="chip" data-q="Gryf">Zbroja Gryfa</button>
+      <button class="chip" data-q="barwnik">Barwniki</button>
+      <button class="chip" data-q="olej">Oleje</button>
+      <button class="chip" data-q="bomba">Bomby</button>
+      <button class="chip" data-q="pogoda">Pogoda</button>
+      <button class="chip" data-q="pieniądze">Gotówka</button>
+      <button class="chip" data-q="umiejętność">Umiejętności</button>
+      <button class="chip" data-q="Yennefer">Wygląd NPC</button>
+      <button class="chip" data-q="god">Tryb boga</button>
+    </div>
   </div>
 
   <div class="empty-state" id="emptyState"></div>
@@ -47,6 +79,7 @@
 </footer>
 
 <script src="data.js"></script>
+<script src="data-extra.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

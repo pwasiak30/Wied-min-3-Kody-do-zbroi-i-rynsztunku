@@ -63,4 +63,12 @@ index.html    - struktura strony
 styles.css    - style (motyw wiedźmiński)
 data.js       - baza danych przedmiotów i kodów
 app.js        - logika wyszukiwania i renderowania
+LICENSE       - licencja MIT (kod) + disclaimer dot. treści gry
 ```
+
+## Licencja
+
+Kod źródłowy tej strony jest objęty licencją **MIT** (patrz plik `LICENSE`).
+Nazwy przedmiotów i inne treści związane z grą są własnością CD PROJEKT S.A.
+i zostały użyte wyłącznie informacyjnie — to niezależny, niekomercyjny
+projekt fanowski, niezwiązany z CD PROJEKT S.A.
