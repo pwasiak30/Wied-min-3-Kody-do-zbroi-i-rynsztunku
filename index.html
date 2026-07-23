@@ -3,83 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wiedźmin 3 – Kody do zbroi i rynsztunku</title>
-<meta name="description" content="Wyszukiwarka kodów additem do zbroi, uzbrojenia i rynsztunku z Wiedźmina 3: Dziki Gon, wraz z rankingiem zestawów.">
+<title>Wiedźmin 3 — Kody i Tutorial</title>
+<meta name="description" content="Wyszukiwarka kodów additem do zbroi, uzbrojenia i rynsztunku z Wiedźmina 3: Dziki Gon oraz pełny tutorial przejścia wszystkich zadań głównych i kluczowych zadań pobocznych wraz z wynikami każdego wyboru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%90%BA%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <span class="wolf-medallion">🐺</span>
-  <h1>Wiedźmin 3: kody do zbroi i rynsztunku</h1>
-  <p class="subtitle">Wpisz nazwę przedmiotu (np. „Gryf”, „Aerondight”) lub kod (np. „Wolf Armor”), aby zobaczyć kody <code>additem()</code> dla wszystkich poziomów – łącznie z wersją maksymalną – oraz ranking danego zestawu.</p>
+<!-- ============ PRZYCISK WSPARCIA — zawsze widoczny (jak na innych stronach autora) ============ -->
+<a class="coffee-fab" href="https://suppi.pl/pawelwasiak" target="_blank" rel="noopener" title="Postaw mi kawę na Suppi">
+<span class="coffee-icon">☕</span>
+<span class="coffee-label">Postaw kawę</span>
+</a>
+
+<header class="site-header">
+  <div class="ornament-row"><span class="line"></span><span class="wolf-medallion">🐺</span><span class="line"></span></div>
+  <p class="kicker">Fanowski poradnik niezwiązany z CD Projekt S.A.</p>
+  <h1>Wiedźmin 3: <span>Dziki Gon</span></h1>
+  <p class="subtitle">Wyszukiwarka kodów <code>additem()</code> do zbroi i rynsztunku oraz pełny tutorial przejścia zadań głównych i pobocznych — wraz z wynikami każdego wyboru.</p>
+
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="codes" id="tabBtnCodes"><span class="tab-icon">⚔</span>Kody do zbroi</button>
+    <button class="tab-btn" data-tab="tutorial" id="tabBtnTutorial"><span class="tab-icon">📜</span>Tutorial zadań</button>
+  </nav>
 </header>
 
 <main>
-  <div class="search-panel">
-    <div class="search-row">
-      <input type="text" id="searchInput" placeholder="Szukaj: nazwa przedmiotu lub kod..." autofocus autocomplete="off">
-      <select id="categoryFilter">
-        <option value="all">Wszystkie kategorie</option>
-        <optgroup label="Zbroje i uzbrojenie">
-          <option value="armor">Zbroja</option>
-          <option value="boots">Buty</option>
-          <option value="gloves">Rękawice</option>
-          <option value="pants">Spodnie</option>
-          <option value="steelsword">Miecz stalowy</option>
-          <option value="silversword">Miecz srebrny</option>
-          <option value="crossbow">Kusza</option>
-          <option value="saddlebag">Sakwy</option>
-          <option value="saddle">Siodło</option>
-          <option value="blinders">Naoczniki</option>
-        </optgroup>
-        <optgroup label="Przedmioty">
-          <option value="dye">Barwniki</option>
-          <option value="potion">Mikstury</option>
-          <option value="decoction">Dekokty</option>
-          <option value="oil">Oleje</option>
-          <option value="bomb">Bomby</option>
-          <option value="mutagen">Mutageny</option>
-          <option value="schematic">Glify / Runy</option>
-          <option value="material">Materiały rzemieślnicze</option>
-        </optgroup>
-        <optgroup label="Komendy">
-          <option value="combat">Walka</option>
-          <option value="money">Gotówka</option>
-          <option value="exploration">Eksploracja mapy</option>
-          <option value="weather">Pogoda i czas</option>
-          <option value="geraltLook">Wygląd/zachowanie Geralta</option>
-          <option value="skill">Umiejętności Geralta</option>
-          <option value="npcLook">Wygląd postaci (Ciri/Triss/Yen/Keira)</option>
-        </optgroup>
-      </select>
-    </div>
-    <div class="result-count" id="resultCount"></div>
-    <div class="chips">
-      <button class="chip" data-q="Gryf">Zbroja Gryfa</button>
-      <button class="chip" data-q="barwnik">Barwniki</button>
-      <button class="chip" data-q="olej">Oleje</button>
-      <button class="chip" data-q="bomba">Bomby</button>
-      <button class="chip" data-q="pogoda">Pogoda</button>
-      <button class="chip" data-q="pieniądze">Gotówka</button>
-      <button class="chip" data-q="umiejętność">Umiejętności</button>
-      <button class="chip" data-q="Yennefer">Wygląd NPC</button>
-      <button class="chip" data-q="god">Tryb boga</button>
-    </div>
-  </div>
 
-  <div class="empty-state" id="emptyState"></div>
-  <div class="results" id="results"></div>
+  <!-- ============================== ZAKŁADKA 1: KODY ============================== -->
+  <section class="tab-panel active" id="tab-codes">
+    <div class="search-panel">
+      <div class="search-row">
+        <input type="text" id="searchInput" placeholder="Szukaj: nazwa przedmiotu lub kod..." autocomplete="off">
+        <select id="categoryFilter">
+          <option value="all">Wszystkie kategorie</option>
+          <optgroup label="Zbroje i uzbrojenie">
+            <option value="armor">Zbroja</option>
+            <option value="boots">Buty</option>
+            <option value="gloves">Rękawice</option>
+            <option value="pants">Spodnie</option>
+            <option value="steelsword">Miecz stalowy</option>
+            <option value="silversword">Miecz srebrny</option>
+            <option value="crossbow">Kusza</option>
+            <option value="saddlebag">Sakwy</option>
+            <option value="saddle">Siodło</option>
+            <option value="blinders">Naoczniki</option>
+          </optgroup>
+          <optgroup label="Przedmioty">
+            <option value="dye">Barwniki</option>
+            <option value="potion">Mikstury</option>
+            <option value="decoction">Dekokty</option>
+            <option value="oil">Oleje</option>
+            <option value="bomb">Bomby</option>
+            <option value="mutagen">Mutageny</option>
+            <option value="schematic">Glify / Runy</option>
+            <option value="material">Materiały rzemieślnicze</option>
+          </optgroup>
+          <optgroup label="Komendy">
+            <option value="combat">Walka</option>
+            <option value="money">Gotówka</option>
+            <option value="exploration">Eksploracja mapy</option>
+            <option value="weather">Pogoda i czas</option>
+            <option value="geraltLook">Wygląd/zachowanie Geralta</option>
+            <option value="skill">Umiejętności Geralta</option>
+            <option value="npcLook">Wygląd postaci (Ciri/Triss/Yen/Keira)</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="result-count" id="resultCount"></div>
+      <div class="chips">
+        <button class="chip" data-q="Gryf">Zbroja Gryfa</button>
+        <button class="chip" data-q="barwnik">Barwniki</button>
+        <button class="chip" data-q="olej">Oleje</button>
+        <button class="chip" data-q="bomba">Bomby</button>
+        <button class="chip" data-q="pogoda">Pogoda</button>
+        <button class="chip" data-q="pieniądze">Gotówka</button>
+        <button class="chip" data-q="umiejętność">Umiejętności</button>
+        <button class="chip" data-q="Yennefer">Wygląd NPC</button>
+        <button class="chip" data-q="god">Tryb boga</button>
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState"></div>
+    <div class="results" id="results"></div>
+  </section>
+
+  <!-- ============================== ZAKŁADKA 2: TUTORIAL ============================== -->
+  <section class="tab-panel" id="tab-tutorial">
+    <div class="search-panel">
+      <div class="search-row">
+        <input type="text" id="tutSearchInput" placeholder="Szukaj zadania po nazwie lub treści..." autocomplete="off">
+      </div>
+      <div class="tut-filters">
+        <div class="tut-filter-group">
+          <span class="tut-filter-label">Typ:</span>
+          <button class="chip tut-filter active" data-filter-type="type" data-value="all">Wszystkie</button>
+          <button class="chip tut-filter" data-filter-type="type" data-value="main">Zadania główne</button>
+          <button class="chip tut-filter" data-filter-type="type" data-value="side">Zadania poboczne</button>
+        </div>
+      </div>
+      <div class="tut-filters">
+        <div class="tut-filter-group">
+          <span class="tut-filter-label">Część gry:</span>
+          <button class="chip tut-filter active" data-filter-type="dlc" data-value="all">Wszystkie</button>
+          <button class="chip tut-filter" data-filter-type="dlc" data-value="base">Podstawowa gra</button>
+          <button class="chip tut-filter" data-filter-type="dlc" data-value="hos">Serca z Kamienia</button>
+          <button class="chip tut-filter" data-filter-type="dlc" data-value="bw">Krew i Wino</button>
+        </div>
+      </div>
+      <div class="result-count" id="tutResultCount"></div>
+    </div>
+
+    <div class="empty-state" id="tutEmptyState" style="display:none;"></div>
+    <div class="quest-list" id="tutResults"></div>
+  </section>
+
 </main>
 
 <footer>
   <p>Aby aktywować konsolę: w pliku <code>bin/config/base/general.ini</code> dodaj linię <code>DBGConsoleOn=true</code>, następnie w grze otwórz konsolę klawiszem <code>~</code>.</p>
-  <p>Kody weryfikowane na podstawie community guide'ów PC (Steam/GOG). Dokładne wartości statystyk skalują się z poziomem postaci – traktuj je jako opis roli bojowej, nie sztywne liczby.</p>
-  <p>Zrobione dla własnego użytku · dane z domeny publicznej społeczności Wiedźmina 3</p>
+  <p>Kody i przebieg zadań zweryfikowane na podstawie community guide'ów (Steam/GOG, witcher.fandom.com i inne). Wybory i konsekwencje opisano w skrócie — pełny tekst dialogów bywa bogatszy w niuanse.</p>
+  <p>Zrobione dla własnego użytku · projekt fanowski niezwiązany z CD PROJEKT S.A. · nazwy i treści z gry są własnością CD PROJEKT S.A.</p>
+  <p><a href="https://pwasiak30.github.io/pwasiak-linktree/" target="_blank" rel="noopener">🔗 Zobacz moje pozostałe projekty — Linktree</a></p>
 </footer>
 
 <script src="data.js"></script>
 <script src="data-extra.js"></script>
 <script src="app.js"></script>
+<script src="tutorial-data.js"></script>
+<script src="tutorial-app.js"></script>
+<script src="tabs.js"></script>
 </body>
 </html>
